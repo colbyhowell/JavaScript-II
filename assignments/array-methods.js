@@ -1,3 +1,26 @@
+// // const lastName = 'Bob';
+// // function greet() { 
+// //   const firstName = 'Jim';
+// //   alert(`The name's ${lastName}, ${firstName} ${lastName}`);
+// // }
+// // console.log(lastName);
+
+
+// function createCounter() {
+//    let counter = 0
+//    const myFunction = function() {
+//      counter = counter + 1
+//       return counter
+//     }
+//     return myFunction
+// }
+// const increment = createCounter()
+// const increment2 = createCounter()
+// console.log(increment())
+// console.log(increment())
+// console.log(increment())
+// console.log(increment2())
+
 // A local community center is holding a fund raising 5k fun run and has invited 50 small businesses to make a small donation on their behalf for some much needed updates to their facilities.  Each business has assigned a representative to attend the event along with a small donation.
 
 // Scroll to the bottom of the list to use some advanced array methods to help the event director gather some information from the businesses.
@@ -56,21 +79,54 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 let fullName = [];
-console.log(fullName);
+
+function firstLastName(names){
+  fullName.push(`${names.first_name} ${names.last_name}`)
+
+}
+runners.forEach(firstLastName)
+console.log(fullName)
+
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
 let allCaps = [];
+
+function capLetters(names){
+    allCaps.push(names.first_name.toUpperCase())
+}
+runners.map(capLetters)
 console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
 let largeShirts = [];
+
+function whatShirt(shirt){
+   if(shirt.shirt_size === "L"){
+     largeShirts.push(shirt)
+   }
+
+  }
+runners.filter(whatShirt)
 console.log(largeShirts);
+
+
+// wrote another way to do it
+let bigShirts = runners.filter(item =>
+item.shirt_size === "L")
+console.log(bigShirts)
+
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
 let ticketPriceTotal = [];
+
+  function addDonations(total, cash){
+    return (total + cash.donation)
+  }
+
+ticketPriceTotal.push(runners.reduce(addDonations, 0))
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====

@@ -1,6 +1,18 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+function breakStuff(item1, item2){
+  console.log("What happened?")
+  var brokeIt = function (){
+    console.log(`The ${item1} and ${item2}, I broke them`)
+  }
+  return brokeIt
+}
+const breaking = breakStuff("glass", "car")
+
+breaking()
+
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
